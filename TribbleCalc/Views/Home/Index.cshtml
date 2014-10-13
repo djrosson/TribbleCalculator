@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    
+}
+
+<div class="jumbotron">
+   <!-- <h1>Tribble Growth Calculator</h1>-->
+    <p class="lead">
+        Tribbles are little alien furballs.  They eat voraciously and breed extremely quickly.  According to Mr. Spock, Tribbles produce a new
+        generation every twelve hours as long as there is a steady enough food supply.  Each tribble will produce 10 more tribbles.  As you can imagine, this
+        can escalate quickly.
+    </p>
+    <p>
+        Most starship captains would want to know an estimate of how many tribbles would be on their ship in a breeding outbreak scenario, so they can plan accordingly.
+        This calculator will predict that number for you.  Simply enter an integer in the box below and then hit submit.  The calculator will return the estimated number
+        of tribbles you can expect to be dealing with.  Keep in mind, it is assumed that there is an adequate food supply onboard to sustain these numbers and it does not
+        account for accidental tribble deaths.
+
+    </p>
+    <p><a href="http://en.wikipedia.org/wiki/Tribble" class="btn btn-primary btn-large">Learn more about what Tribbles are&raquo;</a>
+       <a href="http://courses.missouristate.edu/alexanderwait/notes/SPRING%202003/Tribbles.htm" class="btn btn-primary btn-large">Learn more about Tribble growth rates&raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Hours Passed</h2>
+        <p>
+            Enter the number of hours that have passed since the first tribble appeared on your ship.
+
+            @using (Html.BeginForm("calculateTribbleNumbers", "Home", FormMethod.Post))
+            {
+                @Html.TextBox("HoursPassed")
+
+                <input type="submit" id="hoursPassed" value="Submit" />
+
+            }
+
+            <br><font color="red"><b>Warning: Only integer input will be accepted.</b></font>
+        </p>
+
+
+    </div>
+
+
+    <div class="col-md-4">
+        <h2>Number of Tribbles</h2>
+        <p>
+            There are currently @ViewBag.Tribbles tribble(s) on board the ship.
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Tribbles are trouble.</h2>
+        <p>
+            <img src="http://upload.wikimedia.org/wikipedia/en/5/50/ST_TroubleWithTribbles.jpg" alt="The trouble with tribbles." style="width:304px;height:228px">
+        </p>
+    </div>
+</div>
